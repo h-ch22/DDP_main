@@ -5,8 +5,13 @@ import torch.distributed as dist
 from torch.utils.data import DataLoader, DistributedSampler
 from torch.nn.parallel import DistributedDataParallel
 
+# Modify Visible Devices to match your GPU Count. c.f.) If you have 4 GPUs, the value is '0, 1, 2, 3'
 os.environ["CUDA_VISIBLE_DEVICES"] = '0,1'
+
+# Local Host -- You do not need to modify if you are using one-machine.
 os.environ['MASTER_ADDR'] = '127.0.0.1'
+
+# Port -- You do not need to modify if you are using one-machine.
 os.environ['MASTER_PORT'] = '10161'
 
 # Define Parser -- If your code already have ArgumentParser(), remove this line.
